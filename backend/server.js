@@ -7,7 +7,26 @@ const path = require('path')
 const app = express()
 
 // ── Middleware ────────────────────────────────────────────────
-app.use(cors({ origin: 'http://localhost:5173', credentials: true }))
+const allowedOrigins = [
+  'http://localhost:5173',
+  'http://localhost:4173',
+  'https://cafe-backend-c7bk.onrender.com',
+  // Vercel deploy అయిన తర్వాత ఇక్కడ add అవుతుంది
+  process.env.FRONTEND_URL,
+].filter(Boolean)
+
+app.use(cors({
+  origin: (origin, callback) => {
+    // Allow requests with no origin (mobile apps, curl, etc.)
+    if (!origin) return callback(null, true)
+    if (allowedOrigins.includes(origin) || origin.endsWith('.vercel.app')) {
+      callback(null, true)
+    } else {
+      callback(new Error('Not allowed by CORS'))
+    }
+  },
+  credentials: true,
+}))
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
