@@ -1,0 +1,31 @@
+/* Navbar active link */
+.nav-links a.active:not(.nav-order-btn) {
+  color: var(--gold-light);
+}
+
+/* Logo image */
+.logo-img {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+/* Kalyan Cafe name — Playfair Display italic like home page */
+.navbar-logo .logo-name {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 25px;
+  font-weight: 900;
+  color: var(--gold-light);
+  line-height: 1.2;
+}
+.footer-logo .logo-name {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 25px;
+  font-weight: 900;
+  color: var(--gold-light);
+  line-height: 1.2;
+}

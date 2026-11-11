@@ -1,0 +1,252 @@
+.about-page {
+  background: var(--cream);
+  min-height: 80vh;
+}
+
+/* ===== HERO ===== */
+.about-hero {
+  background: linear-gradient(135deg, var(--brown-dark) 0%, var(--brown-mid) 100%);
+  padding: 50px 80px;
+  text-align: center;
+}
+
+.about-hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px;
+  color: var(--gold-light);
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.about-hero p {
+  color: var(--cream-dark);
+  font-size: 16px;
+  font-style: italic;
+}
+
+/* ===== MAIN CONTAINER ===== */
+.about-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 70px 60px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+/* ===== LEFT ===== */
+.about-sub {
+  color: var(--gold);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.about-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 42px;
+  font-weight: 700;
+  color: var(--brown-dark);
+  line-height: 1.2;
+  margin-bottom: 4px;
+}
+
+.about-title span {
+  color: var(--gold);
+  font-style: italic;
+}
+
+.about-tagline {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-style: italic;
+  color: var(--text-light);
+  margin-bottom: 20px;
+}
+
+.about-divider {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+
+.about-divider span {
+  height: 3px;
+  border-radius: 2px;
+  background: var(--gold);
+}
+
+.about-divider span:first-child {
+  width: 40px;
+}
+
+.about-divider span:last-child {
+  width: 12px;
+}
+
+.about-desc {
+  color: var(--text-mid);
+  font-size: 15px;
+  line-height: 1.8;
+  margin-bottom: 14px;
+}
+
+.about-signature {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-style: italic;
+  color: var(--gold);
+  margin: 20px 0 32px;
+}
+
+/* Features */
+.about-features {
+  display: flex;
+  gap: 32px;
+}
+
+.about-feature {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+}
+
+.about-feature-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid var(--gold);
+  background: var(--brown-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-feature-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: sepia(1) saturate(4) hue-rotate(5deg) brightness(1.2);
+}
+
+.about-feature p {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--brown-dark);
+}
+
+/* ===== RIGHT ===== */
+.about-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-img-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+}
+
+.about-cafe-img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(61, 31, 10, 0.3);
+  display: block;
+}
+
+.about-img-badge {
+  position: absolute;
+  bottom: -20px;
+  right: -16px;
+  background: var(--brown-dark);
+  border: 3px solid var(--gold);
+  border-radius: 14px;
+  padding: 12px 20px;
+}
+
+.about-badge-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-style: italic;
+  color: var(--gold-light);
+  font-weight: 700;
+}
+
+/* ===== BANNER ===== */
+.about-banner {
+  position: relative;
+  min-height: 260px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-top: 40px;
+}
+
+.about-banner-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-banner-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 6, 0, 0.72);
+}
+
+.about-banner-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.about-banner-content h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  color: var(--gold-light);
+  margin-bottom: 10px;
+}
+
+.about-banner-content p {
+  color: var(--cream-dark);
+  font-size: 15px;
+  margin-bottom: 24px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .about-hero {
+    padding: 40px 24px;
+  }
+  .about-container {
+    grid-template-columns: 1fr;
+    padding: 40px 24px;
+    gap: 40px;
+  }
+  .about-right {
+    order: -1;
+  }
+  .about-cafe-img {
+    height: 280px;
+  }
+  .about-img-badge {
+    right: 10px;
+    bottom: -14px;
+  }
+  .about-features {
+    gap: 20px;
+  }
+}
