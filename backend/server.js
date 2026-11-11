@@ -10,14 +10,12 @@ const app = express()
 const allowedOrigins = [
   'http://localhost:5173',
   'http://localhost:4173',
-  'https://cafe-backend-c7bk.onrender.com',
-  // Vercel deploy అయిన తర్వాత ఇక్కడ add అవుతుంది
+  'https://cafe-ochre-mu.vercel.app',
   process.env.FRONTEND_URL,
 ].filter(Boolean)
 
 app.use(cors({
   origin: (origin, callback) => {
-    // Allow requests with no origin (mobile apps, curl, etc.)
     if (!origin) return callback(null, true)
     if (allowedOrigins.includes(origin) || origin.endsWith('.vercel.app')) {
       callback(null, true)
