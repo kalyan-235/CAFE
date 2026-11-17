@@ -51,15 +51,12 @@ router.get('/all', auth, async (req, res) => {
 router.post('/', auth, upload.single('image'), async (req, res) => {
   try {
     if (!req.file) return res.status(400).json({ message: 'Image required' })
-    const { tag, badge, title, subtitle, desc, order } = req.body
+    const { title, subtitle, order } = req.body
     if (!title) return res.status(400).json({ message: 'Title required' })
     const offer = await Offer.create({
       img:      req.file.filename,
-      tag:      tag      || 'Special Offer',
-      badge:    badge    || '',
       title,
       subtitle: subtitle || '',
-      desc:     desc     || '',
       order:    Number(order) || 0,
     })
     res.status(201).json(offer)
@@ -74,12 +71,9 @@ router.put('/:id', auth, upload.single('image'), async (req, res) => {
     const offer = await Offer.findById(req.params.id)
     if (!offer) return res.status(404).json({ message: 'Not found' })
 
-    const { tag, badge, title, subtitle, desc, order, active } = req.body
-    if (tag      !== undefined) offer.tag      = tag
-    if (badge    !== undefined) offer.badge    = badge
+    const { title, subtitle, order, active } = req.body
     if (title    !== undefined) offer.title    = title
     if (subtitle !== undefined) offer.subtitle = subtitle
-    if (desc     !== undefined) offer.desc     = desc
     if (order    !== undefined) offer.order    = Number(order)
     if (active   !== undefined) offer.active   = active === 'true' || active === true
     if (req.file) offer.img = req.file.filename

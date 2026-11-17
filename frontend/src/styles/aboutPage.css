@@ -250,3 +250,67 @@
     gap: 20px;
   }
 }
+
+@media (max-width: 600px) {
+  .about-hero {
+    padding: 26px 16px;
+  }
+
+  .about-hero h1 {
+    font-size: 30px;
+  }
+
+  .about-hero p {
+    font-size: 12px;
+  }
+
+  .about-container {
+    padding: 24px 16px;
+    gap: 24px;
+  }
+
+  .about-right {
+    order: -1;
+  }
+
+  .about-cafe-img {
+    height: 210px;
+    border-radius: 14px;
+  }
+
+  .about-title {
+    font-size: 30px;
+  }
+
+  .about-desc {
+    font-size: 13px;
+  }
+
+  .about-features {
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .about-feature {
+    flex: 1;
+    gap: 7px;
+  }
+
+  .about-feature-icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .about-feature p {
+    font-size: 11px;
+  }
+
+  .about-banner {
+    margin-top: 0;
+    min-height: 210px;
+  }
+
+  .about-banner-content h2 {
+    font-size: 26px;
+  }
+}

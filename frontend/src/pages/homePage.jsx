@@ -49,8 +49,7 @@ export default function HomePage() {
           <div className="divider">✦</div>
           <p className="hero-tagline">Sip • Relax • Repeat</p>
           <p className="hero-sub">
-            Discover a world of flavours with our<br />
-            special Chai, Tea and more...
+            Good Coffee. Good Mood.
           </p>
           <Link to="/menu" className="btn-primary hero-btn">
             Explore Menu →
@@ -60,7 +59,8 @@ export default function HomePage() {
         {/* Wave bottom border */}
         <div className="hero-bottom-wave">
           <svg viewBox="0 0 1440 90" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-            <path d="M0,0 C240,90 480,0 720,60 C960,120 1200,20 1440,60 L1440,90 L0,90 Z" fill="#fdf6ec" />
+            <path className="hero-wave-desktop" d="M0,0 C240,90 480,0 720,60 C960,120 1200,20 1440,60 L1440,90 L0,90 Z" fill="#fdf6ec" />
+            <path className="hero-wave-mobile" d="M0,0 C360,0 420,60 720,60 C1020,60 1080,0 1440,0 L1440,90 L0,90 Z" fill="#fdf6ec" />
           </svg>
         </div>
       </section>

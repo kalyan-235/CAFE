@@ -1,30 +1,58 @@
+import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
+import { FaBars, FaGift, FaHome, FaImages, FaInfoCircle, FaShoppingCart, FaTimes, FaUtensils } from 'react-icons/fa'
 import '../styles/Navbar.css'
 
 export default function Navbar() {
-  return (
-    <nav className="navbar">
-      <NavLink to="/" className="navbar-logo">
-        <img src="/coffee-logo.png" alt="Kalyan Cafe Logo" className="logo-img" />
-        <div className="logo-text">
-          <span className="logo-name">Kalyan Cafe</span>
-          <span className="logo-tagline">Sip • Relax • Repeat</span>
-        </div>
-      </NavLink>
+  const [menuOpen, setMenuOpen] = useState(false)
 
-      <ul className="nav-links">
-        <li><NavLink to="/" end>Home</NavLink></li>
-        <li><NavLink to="/menu">Menu</NavLink></li>
-        <li><NavLink to="/gallery">Gallery</NavLink></li>
-        <li><NavLink to="/offers">Offers</NavLink></li>
-        <li><NavLink to="/about">About</NavLink></li>
-        <li><NavLink to="/contact">Contact</NavLink></li>
-        <li>
-          <NavLink to="/menu" className="nav-order-btn">
-            🛒 Order Online
-          </NavLink>
-        </li>
-      </ul>
-    </nav>
+  return (
+    <>
+      <nav className="navbar">
+        <button
+          type="button"
+          className="mobile-menu-toggle"
+          aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+          aria-expanded={menuOpen}
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          {menuOpen ? <FaTimes /> : <FaBars />}
+        </button>
+
+        <NavLink to="/" className="navbar-logo" onClick={() => setMenuOpen(false)}>
+          <img src="/coffee-logo.png" alt="Kalyan Cafe Logo" className="logo-img" />
+          <div className="logo-text">
+            <span className="logo-name">Kalyan Cafe</span>
+            <span className="logo-tagline">Sip • Relax • Repeat</span>
+          </div>
+        </NavLink>
+
+        <NavLink to="/menu" className="mobile-cart-link" aria-label="Order online" onClick={() => setMenuOpen(false)}>
+          <FaShoppingCart />
+        </NavLink>
+
+        <ul className={`nav-links${menuOpen ? ' mobile-menu-open' : ''}`}>
+          <li><NavLink to="/" end onClick={() => setMenuOpen(false)}>Home</NavLink></li>
+          <li><NavLink to="/menu" onClick={() => setMenuOpen(false)}>Menu</NavLink></li>
+          <li><NavLink to="/gallery" onClick={() => setMenuOpen(false)}>Gallery</NavLink></li>
+          <li><NavLink to="/offers" onClick={() => setMenuOpen(false)}>Offers</NavLink></li>
+          <li><NavLink to="/about" onClick={() => setMenuOpen(false)}>About</NavLink></li>
+          <li className="nav-contact-item"><NavLink to="/contact" onClick={() => setMenuOpen(false)}>Contact</NavLink></li>
+          <li>
+            <NavLink to="/menu" className="nav-order-btn" aria-label="Order online" title="Order online" onClick={() => setMenuOpen(false)}>
+              <FaShoppingCart aria-hidden="true" />
+            </NavLink>
+          </li>
+        </ul>
+      </nav>
+
+      <nav className="mobile-bottom-nav" aria-label="Quick navigation">
+        <NavLink to="/" end><FaHome /><span>Home</span></NavLink>
+        <NavLink to="/menu"><FaUtensils /><span>Menu</span></NavLink>
+        <NavLink to="/gallery"><FaImages /><span>Gallery</span></NavLink>
+        <NavLink to="/offers"><FaGift /><span>Offers</span></NavLink>
+        <NavLink to="/about"><FaInfoCircle /><span>About</span></NavLink>
+      </nav>
+    </>
   )
 }

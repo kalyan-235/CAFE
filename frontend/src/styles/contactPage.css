@@ -229,6 +229,38 @@
   }
 }
 
+@media (max-width: 600px) {
+  .contact-hero {
+    padding: 26px 16px;
+  }
+
+  .contact-hero h1 {
+    font-size: 30px;
+  }
+
+  .contact-hero p {
+    font-size: 12px;
+  }
+
+  .contact-container {
+    padding: 20px 12px 26px;
+    gap: 20px;
+  }
+
+  .contact-left h2,
+  .contact-form-wrap h2 {
+    font-size: 22px;
+  }
+
+  .info-card {
+    padding: 12px;
+  }
+
+  .map-iframe-box {
+    height: 180px;
+  }
+}
+
 .error-msg {
   background: #fdecea;
   color: #c62828;

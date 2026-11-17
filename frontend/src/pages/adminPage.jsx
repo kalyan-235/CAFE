@@ -62,7 +62,7 @@ export default function AdminPage() {
   const [offerLoading,  setOfferLoading]  = useState(false)
   const [showOfferForm, setShowOfferForm] = useState(false)
   const [editOffer,     setEditOffer]     = useState(null)
-  const [newOffer,      setNewOffer]      = useState({ tag: '', badge: '', title: '', subtitle: '', desc: '', order: '', image: null, preview: '' })
+  const [newOffer,      setNewOffer]      = useState({ title: '', subtitle: '', order: '', image: null, preview: '' })
 
   // About
   const DEFAULT_ABOUT_FEATURES = [
@@ -329,16 +329,13 @@ export default function AdminPage() {
     setSaving(true)
     try {
       const fd = new FormData()
-      fd.append('tag',      newOffer.tag)
-      fd.append('badge',    newOffer.badge)
       fd.append('title',    newOffer.title)
       fd.append('subtitle', newOffer.subtitle)
-      fd.append('desc',     newOffer.desc)
       fd.append('order',    newOffer.order || '0')
       fd.append('image',    newOffer.image)
       await createOffer(token, fd)
       flash('✅ Offer added!')
-      setNewOffer({ tag: '', badge: '', title: '', subtitle: '', desc: '', order: '', image: null, preview: '' })
+      setNewOffer({ title: '', subtitle: '', order: '', image: null, preview: '' })
       setShowOfferForm(false)
       reloadOffers()
     } catch (err) {
@@ -353,11 +350,8 @@ export default function AdminPage() {
     setSaving(true)
     try {
       const fd = new FormData()
-      fd.append('tag',      editOffer.tag)
-      fd.append('badge',    editOffer.badge)
       fd.append('title',    editOffer.title)
       fd.append('subtitle', editOffer.subtitle)
-      fd.append('desc',     editOffer.desc)
       fd.append('order',    editOffer.order || '0')
       fd.append('active',   editOffer.active)
       if (editOffer._newImage) fd.append('image', editOffer._newImage)
@@ -1143,18 +1137,6 @@ export default function AdminPage() {
                     <input value={newOffer.subtitle} onChange={e => setNewOffer(p => ({ ...p, subtitle: e.target.value }))} placeholder="e.g. on Chai" />
                   </div>
                   <div className="admin-field">
-                    <label>Tag (label top-left)</label>
-                    <input value={newOffer.tag} onChange={e => setNewOffer(p => ({ ...p, tag: e.target.value }))} placeholder="e.g. Best Deal" />
-                  </div>
-                  <div className="admin-field">
-                    <label>Badge (highlight top-right)</label>
-                    <input value={newOffer.badge} onChange={e => setNewOffer(p => ({ ...p, badge: e.target.value }))} placeholder="e.g. B1G1 or 20%" />
-                  </div>
-                  <div className="admin-field" style={{ gridColumn: '1 / -1' }}>
-                    <label>Description</label>
-                    <input value={newOffer.desc} onChange={e => setNewOffer(p => ({ ...p, desc: e.target.value }))} placeholder="Offer details..." />
-                  </div>
-                  <div className="admin-field">
                     <label>Order</label>
                     <input type="number" value={newOffer.order} onChange={e => setNewOffer(p => ({ ...p, order: e.target.value }))} placeholder="1" />
                   </div>
@@ -1190,18 +1172,6 @@ export default function AdminPage() {
                     <input value={editOffer.subtitle} onChange={e => setEditOffer(p => ({ ...p, subtitle: e.target.value }))} />
                   </div>
                   <div className="admin-field">
-                    <label>Tag</label>
-                    <input value={editOffer.tag} onChange={e => setEditOffer(p => ({ ...p, tag: e.target.value }))} />
-                  </div>
-                  <div className="admin-field">
-                    <label>Badge</label>
-                    <input value={editOffer.badge} onChange={e => setEditOffer(p => ({ ...p, badge: e.target.value }))} />
-                  </div>
-                  <div className="admin-field" style={{ gridColumn: '1 / -1' }}>
-                    <label>Description</label>
-                    <input value={editOffer.desc} onChange={e => setEditOffer(p => ({ ...p, desc: e.target.value }))} />
-                  </div>
-                  <div className="admin-field">
                     <label>Change Image (optional)</label>
                     <label className="admin-upload-label" style={{ marginBottom: 0 }}>
                       <input type="file" accept="image/*" onChange={e => {
@@ -1235,14 +1205,11 @@ export default function AdminPage() {
                   <div className={`offers-admin-card ${!offer.active ? 'hidden-card' : ''}`} key={offer._id}>
                     <div className="offers-admin-img">
                       <img src={imgUrl(offer.img)} alt={offer.title} />
-                      <span className="offer-admin-badge">{offer.badge}</span>
                       {!offer.active && <span className="gallery-hidden-badge">Inactive</span>}
                     </div>
                     <div className="offers-admin-info">
-                      <span className="offer-admin-tag">{offer.tag}</span>
                       <p className="offers-admin-title">{offer.title}</p>
                       <p className="offers-admin-sub">{offer.subtitle}</p>
-                      <p className="offers-admin-desc">{offer.desc}</p>
                     </div>
                     <div className="gallery-admin-actions">
                       <button

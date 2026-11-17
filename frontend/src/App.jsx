@@ -21,7 +21,7 @@ function App() {
         <Route path="/*" element={
           <>
             <Navbar />
-            <main>
+            <main className="app-main">
               <Routes>
                 <Route path="/"        element={<HomePage />} />
                 <Route path="/menu"    element={<MenuPage />} />

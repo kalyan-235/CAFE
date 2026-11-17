@@ -47,7 +47,7 @@ export default function AboutPage() {
       <div className="about-page">
         <div className="about-hero">
           <h1>About Us</h1>
-          <p>More than just a cafe... It's a feeling!</p>
+          <p>Our Story, Our Passion</p>
         </div>
         <div className="about-loading">
           <div className="about-spinner" />
@@ -62,7 +62,7 @@ export default function AboutPage() {
       {/* HERO */}
       <div className="about-hero">
         <h1>About Us</h1>
-        <p>More than just a cafe... It's a feeling!</p>
+        <p>Our Story, Our Passion</p>
       </div>
 
       {/* MAIN */}

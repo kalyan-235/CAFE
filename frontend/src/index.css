@@ -100,20 +100,20 @@ body {
 }
 
 .nav-order-btn {
-  background: var(--gold);
-  color: var(--white) !important;
-  padding: 8px 18px;
-  border-radius: 20px;
-  font-weight: 600 !important;
-  transition: background 0.3s !important;
+  background: transparent;
+  color: var(--cream-dark) !important;
+  padding: 8px;
+  border-radius: 50%;
+  font-size: 19px !important;
   display: flex;
   align-items: center;
-  gap: 6px;
+  justify-content: center;
+  transition: color 0.3s !important;
 }
 
 .nav-order-btn:hover {
-  background: var(--gold-light) !important;
-  color: var(--brown-dark) !important;
+  background: transparent !important;
+  color: var(--gold-light) !important;
 }
 
 /* ===== FOOTER ===== */
@@ -281,23 +281,16 @@ body {
 }
 
 @media (max-width: 768px) {
-  .navbar {
-    padding: 12px 20px;
+  .app-main {
+    padding-top: 62px;
+    padding-bottom: 68px;
   }
-  .nav-links {
-    gap: 14px;
-  }
-  .nav-links a {
-    font-size: 12px;
-  }
+
   .footer {
-    padding: 20px;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+    display: none;
   }
-  .footer-nav {
-    flex-wrap: wrap;
-    justify-content: center;
+
+  body {
+    scroll-padding-top: 62px;
   }
 }

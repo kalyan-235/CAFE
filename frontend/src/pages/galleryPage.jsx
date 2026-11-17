@@ -36,8 +36,8 @@ export default function GalleryPage() {
     <div className="gallery-page">
 
       <div className="gallery-hero">
-        <h1>Our Cafe Gallery</h1>
-        <p>A glimpse of our cozy space &amp; delicious treats</p>
+        <h1>Our Gallery</h1>
+        <p>Moments, Memories &amp; Coffee</p>
       </div>
 
       <div className="gallery-container">

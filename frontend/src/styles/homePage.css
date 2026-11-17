@@ -29,6 +29,10 @@
   height: 60px;
 }
 
+.hero-wave-mobile {
+  display: none;
+}
+
 .hero-overlay {
   position: absolute;
   inset: 0;
@@ -308,5 +312,136 @@
 
   .visit-brand {
     font-size: 36px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: 340px;
+    padding: 28px 20px 56px;
+    background-position: center;
+  }
+
+  .hero-overlay {
+    background: linear-gradient(0deg, rgba(20, 8, 0, 0.78), rgba(20, 8, 0, 0.2));
+  }
+
+  .hero-welcome,
+  .hero-title {
+    display: none;
+  }
+
+  .hero-tagline {
+    margin: 0 0 8px;
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-style: italic;
+    letter-spacing: 0;
+  }
+
+  .hero-sub {
+    font-size: 13px;
+    margin: 0 auto 18px;
+    line-height: 1.5;
+  }
+
+  .hero-sub br {
+    display: none;
+  }
+
+  .hero-btn {
+    padding: 9px 22px;
+    font-size: 14px;
+  }
+
+  .hero-bottom-wave {
+    display: block;
+    bottom: -1px;
+  }
+
+  .hero-bottom-wave svg {
+    height: 0px;
+  }
+
+  .hero-wave-desktop {
+    display: none;
+  }
+
+  .hero-wave-mobile {
+    display: block;
+  }
+
+  .specialties-section {
+    padding: 26px 14px 30px;
+  }
+
+  .section-title {
+    margin-bottom: 18px;
+  }
+
+  .section-title .divider {
+    display: none;
+  }
+
+  .section-title h2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 24px;
+    margin-bottom: 4px;
+  }
+
+  .section-title h2::before,
+  .section-title h2::after {
+    content: '';
+    flex: 1;
+    max-width: 34px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .section-title p {
+    font-size: 12px;
+  }
+
+  .specialties-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .specialty-card {
+    width: auto;
+    gap: 6px;
+    padding: 8px;
+    border-radius: 14px;
+    background: #fffaf3;
+    box-shadow: 0 3px 12px rgba(61, 31, 10, 0.12);
+  }
+
+  .specialty-circle {
+    width: 100%;
+    height: 118px;
+    border-radius: 10px;
+    border: 0;
+    box-shadow: none;
+  }
+
+  .specialty-img {
+    border-radius: 10px;
+  }
+
+  .specialty-card h3 {
+    font-size: 13px;
+  }
+
+  .specialty-card p {
+    display: none;
+  }
+
+  .why-section,
+  .visit-section {
+    display: none;
   }
 }

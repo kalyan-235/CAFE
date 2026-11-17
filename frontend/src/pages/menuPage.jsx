@@ -78,7 +78,7 @@ export default function MenuPage() {
 
       <div className="menu-hero">
         <h1>Our Menu</h1>
-        <p>A delightful range of Chai, Tea, Coffee and more...</p>
+        <p>Freshly Brewed. Always Delicious</p>
       </div>
 
       <div className="menu-container">
