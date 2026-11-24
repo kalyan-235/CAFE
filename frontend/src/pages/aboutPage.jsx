@@ -4,9 +4,9 @@ import { getAboutContent, imgUrl } from '../services/api'
 import '../styles/aboutPage.css'
 
 const DEFAULT_FEATURES = [
-  { img: '/leaf-image.webp',  title: 'Quality Ingredients' },
-  { img: '/heart-image.webp', title: 'Warm Ambiance' },
-  { img: '/smile-image.webp', title: 'Happy Customers' },
+  { img: '/leaf.png',  title: 'Quality Ingredients' },
+  { img: '/heart.png', title: 'Warm Ambiance' },
+  { img: '/smile.png', title: 'Happy Customers' },
 ]
 
 const DEFAULT = {
@@ -88,7 +88,14 @@ export default function AboutPage() {
             {data.features.map((f, i) => (
               <div className="about-feature" key={i}>
                 <div className="about-feature-icon">
-                  <img src={f.img} alt={f.title} />
+                  <img
+                    src={f.img}
+                    alt={f.title}
+                    onError={(event) => {
+                      const fallback = DEFAULT_FEATURES.find((entry) => entry.title === f.title)?.img || '/leaf.png'
+                      if (event.currentTarget.getAttribute('src') !== fallback) event.currentTarget.src = fallback
+                    }}
+                  />
                 </div>
                 <p>{f.title}</p>
               </div>
@@ -99,7 +106,14 @@ export default function AboutPage() {
         {/* RIGHT */}
         <div className="about-right">
           <div className="about-img-wrap">
-            <img src={data.cafeImg} alt="Kalyan Cafe" className="about-cafe-img" />
+            <img
+              src={data.cafeImg}
+              alt="Kalyan Cafe"
+              className="about-cafe-img"
+              onError={(event) => {
+                if (event.currentTarget.getAttribute('src') !== '/cafe-1.png') event.currentTarget.src = '/cafe-1.png'
+              }}
+            />
             <div className="about-img-badge">
               <span className="about-badge-name">Kalyan Cafe</span>
             </div>

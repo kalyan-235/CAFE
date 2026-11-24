@@ -10,7 +10,7 @@ export function imgUrl(filename) {
   // All public folder static assets
   const publicAssets = [
     'cafe-home-page.jpeg','cafe-1.png','cafe-2.png','cafe-logo.jpg','cafe-logo2.jpg',
-    'coffee-logo.png','coffe-logo.webp',
+    'coffee-logo.png','coffe-logo.webp','leaf.png','heart.png','smile.png',
     // Chai & Tea
     'masala-tea.webp','ginger-tea.webp','kashmiri-chai.webp','green-tea.webp',
     'lemon-tea.jpg','elaichi-chai.jpg',

@@ -177,6 +177,8 @@
     display: grid;
     grid-template-columns: repeat(5, 1fr);
   }
+}
+
 .footer-logo .logo-name {
   font-family: 'Playfair Display', serif;
   font-style: italic;

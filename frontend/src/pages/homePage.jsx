@@ -14,10 +14,10 @@ const DEFAULT_SPECIALTIES = [
 ]
 
 const DEFAULT_WHY_US = [
-  { img: '/leaf-image.webp',  title: 'Premium Quality Ingredients' },
+  { img: '/leaf.png',         title: 'Premium Quality Ingredients' },
   { img: '/cafe-coffee.jpg',  title: 'Unique Flavours & Varieties' },
-  { img: '/heart-image.webp', title: 'Cozy & Friendly Ambience' },
-  { img: '/smile-image.webp', title: 'Great Taste, Always!' },
+  { img: '/heart.png',        title: 'Cozy & Friendly Ambience' },
+  { img: '/smile.png',        title: 'Great Taste, Always!' },
 ]
 
 export default function HomePage() {
@@ -76,7 +76,15 @@ export default function HomePage() {
           {specialties.map((item) => (
             <div className="specialty-card" key={item.name}>
               <div className="specialty-circle">
-                <img src={item.img} alt={item.name} className="specialty-img" />
+                <img
+                  src={item.img}
+                  alt={item.name}
+                  className="specialty-img"
+                  onError={(event) => {
+                    const fallback = DEFAULT_SPECIALTIES.find((entry) => entry.name === item.name)?.img || '/cafe-coffee.jpg'
+                    if (event.currentTarget.getAttribute('src') !== fallback) event.currentTarget.src = fallback
+                  }}
+                />
               </div>
               <h3>{item.name}</h3>
               <p>{item.desc}</p>
@@ -95,7 +103,15 @@ export default function HomePage() {
           {whyUs.map((item) => (
             <div className="why-card" key={item.title}>
               <div className="why-icon-wrap">
-                <img src={item.img} alt={item.title} className="why-icon-img" />
+                <img
+                  src={item.img}
+                  alt={item.title}
+                  className="why-icon-img"
+                  onError={(event) => {
+                    const fallback = DEFAULT_WHY_US.find((entry) => entry.title === item.title)?.img || '/leaf.png'
+                    if (event.currentTarget.getAttribute('src') !== fallback) event.currentTarget.src = fallback
+                  }}
+                />
               </div>
               <p>{item.title}</p>
             </div>
