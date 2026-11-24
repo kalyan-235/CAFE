@@ -8,33 +8,38 @@ import OffersPage from './pages/offersPage'
 import AboutPage from './pages/aboutPage'
 import ContactPage from './pages/contactPage'
 import AdminPage from './pages/adminPage'
+import CartPage from './pages/cartPage'
+import { CartProvider } from './context/CartContext'
 import './index.css'
 
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        {/* Admin route — no Navbar/Footer */}
-        <Route path="/admin" element={<AdminPage />} />
+      <CartProvider>
+        <Routes>
+          {/* Admin route — no Navbar/Footer */}
+          <Route path="/admin" element={<AdminPage />} />
 
-        {/* Public routes — with Navbar + Footer */}
-        <Route path="/*" element={
-          <>
-            <Navbar />
-            <main className="app-main">
-              <Routes>
-                <Route path="/"        element={<HomePage />} />
-                <Route path="/menu"    element={<MenuPage />} />
-                <Route path="/gallery" element={<GalleryPage />} />
-                <Route path="/offers"  element={<OffersPage />} />
-                <Route path="/about"   element={<AboutPage />} />
-                <Route path="/contact" element={<ContactPage />} />
-              </Routes>
-            </main>
-            <Footer />
-          </>
-        } />
-      </Routes>
+          {/* Public routes — with Navbar + Footer */}
+          <Route path="/*" element={
+            <>
+              <Navbar />
+              <main className="app-main">
+                <Routes>
+                  <Route path="/"        element={<HomePage />} />
+                  <Route path="/menu"    element={<MenuPage />} />
+                  <Route path="/cart"    element={<CartPage />} />
+                  <Route path="/gallery" element={<GalleryPage />} />
+                  <Route path="/offers"  element={<OffersPage />} />
+                  <Route path="/about"   element={<AboutPage />} />
+                  <Route path="/contact" element={<ContactPage />} />
+                </Routes>
+              </main>
+              <Footer />
+            </>
+          } />
+        </Routes>
+      </CartProvider>
     </BrowserRouter>
   )
 }

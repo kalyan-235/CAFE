@@ -37,9 +37,26 @@
 }
 
 .mobile-cart-link {
+  position: relative;
   color: var(--brown-dark);
   font-size: 21px;
   text-decoration: none;
+}
+
+.cart-count {
+  position: absolute;
+  top: -4px;
+  right: -5px;
+  min-width: 17px;
+  height: 17px;
+  padding: 0 4px;
+  border-radius: 9px;
+  background: var(--gold);
+  color: var(--white);
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 17px;
+  text-align: center;
 }
 
 .mobile-bottom-nav a {

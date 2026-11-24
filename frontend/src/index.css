@@ -100,6 +100,7 @@ body {
 }
 
 .nav-order-btn {
+  position: relative;
   background: transparent;
   color: var(--cream-dark) !important;
   padding: 8px;

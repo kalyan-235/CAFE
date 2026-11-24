@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { getMenuItems, imgUrl } from '../services/api'
+import { useCart } from '../context/cartStore'
 import '../styles/menuPage.css'
 
 const CATEGORIES = ['Chai & Tea', 'Coffee', 'Special Drinks', 'Snacks', 'Sweets']
@@ -52,6 +53,7 @@ export default function MenuPage() {
   const [activeCategory, setActiveCategory] = useState('Chai & Tea')
   const [menuItems,      setMenuItems]      = useState(FALLBACK)
   const [loading,        setLoading]        = useState(true)
+  const { addItem } = useCart()
 
   useEffect(() => {
     getMenuItems()
@@ -119,7 +121,13 @@ export default function MenuPage() {
                     <p>{item.desc}</p>
                     <div className="menu-card-footer">
                       <span className="menu-price">₹{item.price}</span>
-                      <button className="add-btn">+ Add</button>
+                      <button
+                        type="button"
+                        className="add-btn"
+                        onClick={() => addItem({ ...item, category: item.category || activeCategory })}
+                      >
+                        + Add
+                      </button>
                     </div>
                   </div>
                 </div>

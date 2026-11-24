@@ -1,10 +1,12 @@
 import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import { FaBars, FaGift, FaHome, FaImages, FaInfoCircle, FaShoppingCart, FaTimes, FaUtensils } from 'react-icons/fa'
+import { useCart } from '../context/cartStore'
 import '../styles/Navbar.css'
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const { itemCount } = useCart()
 
   return (
     <>
@@ -27,8 +29,9 @@ export default function Navbar() {
           </div>
         </NavLink>
 
-        <NavLink to="/menu" className="mobile-cart-link" aria-label="Order online" onClick={() => setMenuOpen(false)}>
+        <NavLink to="/cart" className="mobile-cart-link" aria-label="Shopping cart" onClick={() => setMenuOpen(false)}>
           <FaShoppingCart />
+          {itemCount > 0 && <span className="cart-count">{itemCount > 99 ? '99+' : itemCount}</span>}
         </NavLink>
 
         <ul className={`nav-links${menuOpen ? ' mobile-menu-open' : ''}`}>
@@ -39,8 +42,9 @@ export default function Navbar() {
           <li><NavLink to="/about" onClick={() => setMenuOpen(false)}>About</NavLink></li>
           <li className="nav-contact-item"><NavLink to="/contact" onClick={() => setMenuOpen(false)}>Contact</NavLink></li>
           <li>
-            <NavLink to="/menu" className="nav-order-btn" aria-label="Order online" title="Order online" onClick={() => setMenuOpen(false)}>
+            <NavLink to="/cart" className="nav-order-btn" aria-label="Shopping cart" title={`Cart (${itemCount})`} onClick={() => setMenuOpen(false)}>
               <FaShoppingCart aria-hidden="true" />
+              {itemCount > 0 && <span className="cart-count">{itemCount > 99 ? '99+' : itemCount}</span>}
             </NavLink>
           </li>
         </ul>
